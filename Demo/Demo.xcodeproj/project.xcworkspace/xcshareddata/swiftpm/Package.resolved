@@ -1,0 +1,15 @@
+{
+  "originHash" : "9e4e57c041b713a9dc260248f47951e1de4034ad010d42a571bc3263992e6a8d",
+  "pins" : [
+    {
+      "identity" : "layout-uikit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/cocchiisbetter/Layout-UIKit",
+      "state" : {
+        "branch" : "main",
+        "revision" : "efb3914cfa9dcb64cfc6a7243f620f64b27be7a3"
+      }
+    }
+  ],
+  "version" : 3
+}
