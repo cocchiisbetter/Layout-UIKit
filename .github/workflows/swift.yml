@@ -14,7 +14,5 @@ jobs:
     runs-on: ${{ vars.OS }}
     steps:
     - uses: actions/checkout@v4
-    - name: Put DESTINATION
-      run: echo ${{ vars.DESTINATION }}
     - name: Run Tests
       run: xcodebuild test -scheme LayoutUIKit -destination '${{ vars.DESTINATION }}'
