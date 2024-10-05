@@ -11,9 +11,10 @@ on:
 
 jobs:
   build:
-    runs-on: $OS
-
+    runs-on: macos-15
     steps:
     - uses: actions/checkout@v4
+    - name: Put DESTINATION
+      run: echo ${{ vars.DESTINATION }}
     - name: Run Tests
       run: xcodebuild test -scheme LayoutUIKit -destination '$DESTINATION'
