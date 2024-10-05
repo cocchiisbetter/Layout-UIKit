@@ -17,3 +17,6 @@ jobs:
     - uses: actions/checkout@v4
     - name: Run Tests
       run: xcodebuild test -scheme LayoutUIKit -destination 'platform=iOS Simulator,OS=18.1,name=iPhone 16'
+
+    - name: Put destination
+      run: echo 'destination=$DESTINATION'
