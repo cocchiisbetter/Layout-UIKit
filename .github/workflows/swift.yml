@@ -11,9 +11,8 @@ on:
 
 jobs:
   build:
-    runs-on: macos-15
-
+    runs-on: ${{ vars.OS }}
     steps:
     - uses: actions/checkout@v4
     - name: Run Tests
-      run: xcodebuild test -scheme LayoutUIKit -destination 'platform=iOS Simulator,OS=18.1,name=iPhone 16'
+      run: xcodebuild test -scheme LayoutUIKit -destination '${{ vars.DESTINATION }}'
