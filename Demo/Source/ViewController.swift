@@ -21,29 +21,28 @@ class ViewController: UIViewController {
         let h = view.bounds.height
         let progress = scrollView.contentOffset.y / (scrollView.contentSize.height - h)
 
+        // 2. calculate the frame to lay out a label
         label.font = .systemFont(ofSize: w, weight: .heavy)
         label.textColor = .init(white: progress, alpha: 1)
-        scrollView.contentSize.height = label.frame.height
-        scrollView.indicatorStyle = (0.5 < progress ? .white : .black)
-
-        // 2. set view.bound to fill screen
-        scrollView.layout { f in
-            f = view.bounds
-        }
-
-        // 3. calculate the frame to lay out a view
         label.layout { f in
             f.size = label.sizeThatFits(.zero)
             f.origin.x = (w - f.width) / 2
             f.origin.y = (f.width - f.height) / 2
         }
 
-        // 4. use .floating mode to implement smooth parallax
+        // 3. use .floating mode to implement smooth parallax
         indicator.layout(.floating) { f in
             f.size.width = w
             f.size.height = h * progress
             f.origin.y = h * (1 - progress)
         }
+
+        // 4. set view.bound to fill screen
+        scrollView.layout { f in
+            f = view.bounds
+        }
+        scrollView.contentSize.height = label.frame.height
+        scrollView.indicatorStyle = (0.5 < progress ? .white : .black)
     }
 
     // MARK: - Subviews
